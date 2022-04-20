@@ -1,0 +1,308 @@
+{% load static %}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Latest compiled and minified CSS -->
+    <script src="{% static 'js/jquery-3.1.1.js'%}" type="text/javascript" charset="utf-8"></script>
+    <!-- <script src="./jquery-ui.min.js" type="text/javascript" charset="utf-8"></script> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+   
+    <!-- 사용자 정의 CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/subsection.css' %}">
+    
+    <title>Main</title>
+    
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+    </script>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript" src="{%static 'js/jquery-subwayMap-0.5.3.js' %}"></script>
+
+    <!-- 사용자 정의 JavaScript -->
+    <script type="text/javascript" src="{% static 'js/visualize.js' %}"></script>
+    <style>
+  
+    #logo {
+        width: 50px;
+        height: 50px;
+        margin-left: -5px;
+        margin-top: -15px;
+    }
+    </style>
+    <script>
+    
+ 
+        // 노선 변경 처리
+        function changeLine(lineNumber){
+            var lineimgOne = document.getElementById("line1");
+            var lineimgTwo = document.getElementById("line2");
+            var lineimgThree = document.getElementById("line3");
+
+            switch(lineNumber){
+                case 1:
+                    $("#line1").css("display", "initial");
+                    $("#line2").css("display", "none");
+                    $("#line3").css("display", "none");
+                    $(".sec1").css("display", "initial");
+                    $(".sec2").css("display", "none");
+                    $(".sec3").css("display", "none");
+                    setSubway(1);
+                    break;
+                case 2:
+                    $("#line1").css("display", "none");
+                    $("#line2").css("display", "initial");
+                    $("#line3").css("display", "none");          
+                    $(".sec1").css("display", "none");
+                    $(".sec2").css("display", "initial");
+                    $(".sec3").css("display", "none");
+                    setSubway(2);
+                    break;
+                case 3:
+                    $("#line1").css("display", "none");
+                    $("#line2").css("display", "none");
+                    $("#line3").css("display", "initial");   
+                    $(".sec1").css("display", "none");
+                    $(".sec2").css("display", "none");
+                    $(".sec3").css("display", "initial");
+                    setSubway(3);
+                    break;
+                default:
+                    return;
+            }
+        };
+    </script>
+</head>
+<body>
+    <body>
+        <!-- 상단바 -->
+        <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+              <div class="navbar-header">
+                  <a class="navbar-brand" href="/main"><img id='logo' src="{% static 'images/logo_1.png'%}">
+              </div>
+              <ul class="nav navbar-nav">
+                  <li id="home"><a href="/main">Home</a></li>
+                  <li id="sboard"><a href="{% url 'SB:SI' 1 %}">건의사항</a></li>
+                  <li id="board"><a href="{% url 'BD:I' 1 %}">공지사항</a></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                      <li id="myinfo"><a href="/account/myinfo"><span class="glyphicon glyphicon-user"></span> {{ user }}</a></li>
+                      <li><a href="/account/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+              </ul>
+          </div>
+      </nav>
+        
+        <div class="line_btn-group">
+            <!-- 노선 변경 버튼-->
+            <button type="button" class="btn btn-primary" onclick="changeLine(1)">1호선</button>
+            <button type="button" class="btn btn-primary" onclick="changeLine(2)">2호선</button>
+            <button type="button" class="btn btn-primary" onclick="changeLine(3)">3호선</button>
+        
+            <!-- 탑승역 입력 버튼-->
+            <!-- <button type="button" class="btn btn-info btn-lg" id="add_friend_btn" data-toggle="modal" data-target="#myModal">탑승역 입력</button> -->
+        </div>
+        <div class="sec1">
+            <!-- 안심행 -->
+            <div id="sec1_up_1"></div>
+            <div id="sec1_up_2"></div>
+            <div id="sec1_up_3"></div>
+            <div id="sec1_up_4"></div>
+            <div id="sec1_up_5"></div>
+            <div id="sec1_up_6"></div>
+            <div id="sec1_up_7"></div>
+
+            <!-- 설화명곡행 -->
+            <div id="sec1_down_1"></div>
+            <div id="sec1_down_2"></div>
+            <div id="sec1_down_3"></div>
+            <div id="sec1_down_4"></div>
+            <div id="sec1_down_5"></div>
+            <div id="sec1_down_6"></div>
+            <div id="sec1_down_7"></div>
+        </div>
+
+                <!-- 1호선 역 32개 -->
+        <div class="subway-map" id="line1" data-columns="35" data-rows="15" data-cellSize="50" data-legendId="legend" data-textClass="text" data-gridNumbers="true" data-grid="false" data-lineWidth="8">
+            <ul data-color="#d93f5c" data-label="jQuery Widgets">
+                <li data-coords="4, 13" >설화\n명곡</a></li>
+                <li data-coords="5, 13" >화원</a></li>
+                <li data-coords="6, 13" >대곡</a></li>
+                <li data-coords="7, 13" >진천</a></li>
+                <li data-coords="8, 13" >월배</a></li>
+                <li data-coords="9, 13" >상인</a></li>
+                <li data-coords="10, 13" >월촌</a></li>
+                <li data-coords="11, 13" >송현</a></li>
+                <li data-coords="12, 13" >서부\n정류장</a></li>
+                <li data-coords="13, 13" >대명</a></li>
+                <li data-coords="14, 13" >안지랑</a></li>
+                <li data-coords="15.5, 13" >현충로</a></li>
+                <li data-coords="17, 13" >영대병원</a></li>
+                <li data-coords="17, 11.5" >교대</a></li>
+                <li data-coords="17, 10" data-marker="interchange">명덕</a></li>
+                <li data-coords="17, 8.7" data-marker="interchange">반월당</a></li>
+                <li data-coords="17, 7.5" >중앙로</a></li>
+                <li data-coords="17, 6.3" >대구역</a></li>
+                <li data-coords="17, 4.8" >칠성시장</a></li>
+                <li data-coords="17, 3.3" >신천</a></li>
+                <li data-coords="17, 2" >동대구역</a></li>
+                <li data-coords="18.2, 2" >동구청</a></li>
+                <li data-coords="19.5, 2" >아양교</a></li>
+                <li data-coords="20.8, 2" >동촌</a></li>
+                <li data-coords="22, 2" >해안</a></li>
+                <li data-coords="23, 2" >방촌</a></li>
+                <li data-coords="24, 2" >용계</a></li>
+                <li data-coords="25, 2" >율하</a></li>
+                <li data-coords="26, 2" >신기</a></li>
+                <li data-coords="27, 2" >반야월</a></li>
+                <li data-coords="28, 2" >각산</a></li>
+                <li data-coords="29, 2" >안심</a></li>
+            </ul>
+        </div>
+    
+
+        <div class="sec2">
+            <!-- 문양행 -->
+            <div id="sec2_up_1"></div>
+            <div id="sec2_up_2"></div>
+            <div id="sec2_up_3"></div>
+            <div id="sec2_up_4"></div>
+            <div id="sec2_up_5"></div>
+            <div id="sec2_up_6"></div>
+            <div id="sec2_up_7"></div>
+
+            <!-- 영남대행 -->
+            <div id="sec2_down_1"></div>
+            <div id="sec2_down_2"></div>
+            <div id="sec2_down_3"></div>
+            <div id="sec2_down_4"></div>
+            <div id="sec2_down_5"></div>
+            <div id="sec2_down_6"></div>
+            <div id="sec2_down_7"></div>
+        </div>
+
+        <!-- 2호선 역 29개 -->
+        <div class="subway-map" id="line2" data-columns="35" data-rows="15" data-cellSize="50" data-legendId="legend" data-textClass="text" data-gridNumbers="true" data-grid="false" data-lineWidth="8">
+            <ul data-color="#00AA80" data-label="jQuery Widgets">
+                <li data-coords="26.8, 13" >영남대</a></li>
+                <li data-coords="26, 13" >임당</a></li>
+                <li data-coords="25.2, 13" >정평</a></li>
+                <li data-coords="24.4, 13" >사월</a></li>
+                <li data-coords="23.6, 13" >신매</a></li>
+                <li data-coords="22.8, 13" >고산</a></li>
+                <li data-coords="22, 13" >대공원</a></li>
+                <li data-coords="21.2, 13" >연호</a></li>
+                <li data-coords="20.4, 13" >담티</a></li>
+                <li data-coords="19.6, 13" >만촌</a></li>
+                <li data-coords="18.8, 13" >수성\n구청</a></li>
+                <li data-coords="18, 13" >범어</a></li>
+                <li data-coords="17.2, 13" >대구\n은행</a></li>
+                <li data-coords="16.4, 13"  >경대\n병원</a></li>
+                <li data-coords="15.6, 11" data-marker="interchange">반월당</a></li>
+                <li data-coords="14.8, 9"  data-marker="interchange">청라언덕</a></li>
+                <li data-coords="14, 7" >반고개</a></li>
+                <li data-coords="13.2, 5.2" >내당</a></li>
+                <li data-coords="12.4, 3.5" >두류</a></li>
+                <li data-coords="11.7, 2" >감삼</a></li>
+                <li data-coords="10.8, 2" >죽전</a></li>
+                <li data-coords="10, 2" >용산</a></li>
+                <li data-coords="9.2, 2" >이곡</a></li>
+                <li data-coords="8.4, 2" >성서\n산업단지</a></li>
+                <li data-coords="7.6, 2" >계명대</a></li>
+                <li data-coords="6.8, 2" >강창</a></li>
+                <li data-coords="6, 2" >대실</a></li>
+                <li data-coords="5.2, 2" >다사</a></li>
+                <li data-coords="4.4, 2" >문양</a></li>
+            </ul>
+        </div>
+
+
+        <div class="sec3">
+            <!-- 칠곡경대병원행 -->
+            <div id="sec3_up_1"></div>
+            <div id="sec3_up_2"></div>
+            <div id="sec3_up_3"></div>
+            <div id="sec3_up_4"></div>
+            <div id="sec3_up_5"></div>
+            <div id="sec3_up_6"></div>
+            <div id="sec3_up_7"></div>
+
+            <!-- 용지행 -->
+            <div id="sec3_down_1"></div>
+            <div id="sec3_down_2"></div>
+            <div id="sec3_down_3"></div>
+            <div id="sec3_down_4"></div>
+            <div id="sec3_down_5"></div>
+            <div id="sec3_down_6"></div>
+            <div id="sec3_down_7"></div>
+        </div>
+
+        <!-- 3호선 역 30개 -->
+                <div class="subway-map" id="line3" data-columns="35" data-rows="15" data-cellSize="50" data-legendId="legend" data-textClass="text" data-gridNumbers="true" data-grid="false" data-lineWidth="8">
+                    <ul data-color="#FFB100" data-label="jQuery Widgets">
+                        <li data-coords="11, 2" >칠곡경대병원</a></li>
+                        <li data-coords="11, 2.6" >학정</a></li>
+                        <li data-coords="11, 3.2" >팔거</a></li>
+                        <li data-coords="11, 3.8" >동천</a></li>
+                        <li data-coords="11, 4.4" >칠곡운암</a></li>
+                        <li data-coords="11, 5" >구암</a></li>
+                        <li data-coords="11, 5.6" >태전</a></li>
+                        <li data-coords="11, 6.2" >매천</a></li>
+                        <li data-coords="11, 6.8" >매천시장</a></li>
+                        <li data-coords="11, 7.4" >팔달</a></li>
+                        <li data-coords="11, 8" >공단</a></li>
+                        <li data-coords="12, 8" >만평</a></li>
+                        <li data-coords="13, 8" >팔달시장</a></li>
+                        <li data-coords="14, 8" >원대</a></li>
+                        <li data-coords="15, 8" >북구청</a></li>
+                        <li data-coords="16, 8" >달성공원</a></li>
+                        <li data-coords="17, 8" >서문시장</a></li>
+                        <li data-coords="18, 8" data-marker="interchange">청라언덕</a></li>
+                        <li data-coords="19, 8" >남산</a></li>
+                        <li data-coords="20, 8" data-marker="interchange" >명덕</a></li>
+                        <li data-coords="20, 8.6" >건들바위</a></li>
+                        <li data-coords="20, 9.2" >대봉교</a></li>
+                        <li data-coords="20, 9.8" >수성시장</a></li>
+                        <li data-coords="20, 10.4" >수성구민 운동장</a></li>
+                        <li data-coords="20, 11" >어린이회관</a></li>
+                        <li data-coords="20, 11.6" >황금</a></li>
+                        <li data-coords="20, 12.2" >수성못</a></li>
+                        <li data-coords="20, 12.8" >지산</a></li>
+                        <li data-coords="20, 13.4" >범물</a></li>
+                        <li data-coords="20, 14" >용지</a></li>
+                    </ul>
+                </div>
+
+    <!-- 탑승역 입력 팝업 -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">탑승역 입력</h4>
+                    </div>
+
+                    <div class="modal-body">
+                    <form>
+                        <input type="text" placeholder="탑승역을 입력하세요" />
+                        <input type="submit" />
+                    </form>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <script type="text/javascript">
+        $(".subway-map").subwayMap({ debug: true });
+    </script>
+</body>
+</html>

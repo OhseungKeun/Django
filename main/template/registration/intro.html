@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+        function myFunction(){
+            document.location.href="{% url 'login' %}"
+        }
+    </script>
+</head>
+<style>
+    video {
+        position: fixed; right: 0; bottom: 0;
+        min-width: 100%; min-height: 100%;
+        width: auto; height: auto; z-index: -100;
+        background-size: cover;
+    }
+</style>
+<body>
+    <div id='movie'>
+        <video muted autoplay onended="myFunction()">
+            <source src="../static/videos/intro.mp4" type="video/mp4">
+        </video>
+    </div>
+</body>

@@ -1,0 +1,40 @@
+body
+{
+    font-family: Verdana;
+    font-size: 8pt;
+}
+
+/* The main DIV for the map */
+.subway-map
+{
+    margin: 0;
+    width: 100%;
+    background-color: white;
+    display: inline;
+    z-index: -1;
+}
+
+/* Text labels */
+.text
+{
+    text-decoration: none;
+    color: black;
+}
+
+.subway-map span
+{
+    margin: 5px 5px 5px 0;
+}
+
+
+/* .navbar-default {
+    text-align: center;
+    font-size: 12px;
+    overflow: hidden;
+    position: fixed;
+    top : 0;
+    z-index: 99;
+    transition: 0.4s;
+    width: 100%;
+} */
+

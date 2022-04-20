@@ -1,0 +1,407 @@
+/* ***************** 1호선 *******************/
+/* 안심행 */
+#sec1_up_1 {
+    width: 5px;
+    height: 10px;
+    left : 250px;
+    top: 740px;
+    position: absolute;
+    text-align: center;
+}
+
+#sec1_up_2 {
+    width: 5px;
+    height: 10px;
+    left : 450px;
+    top: 740px;
+    position: absolute;
+    text-align: center;
+}
+
+#sec1_up_3 {
+    width: 10px;
+    height: 5px;
+    left : 700px;
+    top: 740px;
+    position: absolute;
+    text-align: center;
+}
+
+#sec1_up_4 {
+    width: 5px;
+    height: 10px;
+    left : 825px;
+    top: 505px;
+    position: absolute;
+    text-align: center;
+}
+
+#sec1_up_5 {
+    width: 20px;
+    height: 60px;
+    left : 825px;
+    top: 230px;
+    position: absolute;
+    text-align: center;
+}
+
+#sec1_up_6 {
+    width: 55px;
+    height: 20px;
+    left : 1100px;
+    top: 190px;
+    position: absolute;
+    text-align: center;
+}
+
+#sec1_up_7 {
+    width: 5px;
+    height: 10px;
+    left : 1300px;
+    top: 190px;
+    position: absolute;
+    text-align: center;
+}
+
+/* 설화명곡행 */
+
+#sec1_down_1 {
+    width: 10px;
+    height: 5px;
+    left: 1300px;
+    top: 250px;
+    text-align: center;
+    position: absolute;
+}
+
+#sec1_down_2 {
+    width: 10px;
+    height: 5px;
+    left: 1100px;
+    top: 250px;
+    text-align: center;
+    position: absolute;
+}
+
+#sec1_down_3 {
+    width: 10px;
+    height: 5px;
+    left: 860px;
+    top: 250px;
+    text-align: center;
+    position: absolute;
+}
+
+#sec1_down_4 {
+    width: 10px;
+    height: 5px;
+    left: 860px;
+    top: 505px;
+    text-align: center;
+    position: absolute;
+}
+
+#sec1_down_5 {
+    width: 10px;
+    height: 5px;
+    left: 720px;
+    top: 790px;
+    text-align: center;
+    position: absolute;
+}
+
+#sec1_down_6 {
+    width: 10px;
+    height: 5px;
+    left: 450px;
+    top: 790px;
+    text-align: center;
+    position: absolute;
+}
+
+#sec1_down_7 {
+    width: 10px;
+    height: 5px;
+    left: 250px;
+    top: 790px;
+    text-align: center;
+    position: absolute;
+}
+
+/* 2호선 문양행 열차 */
+#sec2_up_1 {
+    width: 10px;
+    height: 5px;
+    position: absolute;
+    text-align: center;
+    left: 1255px;
+    top: 810px;
+}
+
+#sec2_up_2 {
+    width: 10px;
+    height: 5px;
+    position: absolute;
+    text-align: center;
+    left: 1095px;
+    top: 810px;
+}
+
+#sec2_up_3 {
+    width: 10px;
+    height: 5px;
+    position: absolute;
+    text-align: center;
+    left: 935px;
+    top: 810px;
+}
+
+#sec2_up_4 {
+    width: 10px;
+    height: 5px;
+    position: absolute;
+    text-align: center;
+    left: 750px;
+    top: 670px;
+}
+
+#sec2_up_5 {
+    width: 10px;
+    height: 5px;
+    position: absolute;
+    text-align: center;
+    left: 580px;
+    top: 245px;
+}
+
+#sec2_up_6 {
+    width: 10px;
+    height: 5px;
+    position: absolute;
+    text-align: center;
+    left: 415px;
+    top: 245px;
+}
+
+#sec2_up_7 {
+    width: 10px;
+    height: 5px;
+    position: absolute;
+    text-align: center;
+    left: 255px;
+    top: 245px;
+}
+
+/*** 2호선 영남대행 열차 ***/
+/* 문양 - 다사 11:58 */
+#sec2_down_1 {
+    width: 10px;
+    height: 5px;
+    position: absolute;
+    text-align: center;
+    left: 210px;
+    top: 195px;
+}
+
+/* 계명대 - 성서산업단지 11:59 */
+#sec2_down_2 {
+    width: 10px;
+    height: 5px;
+    position: absolute;
+    text-align: center;
+    left: 375px;
+    top: 195px;
+}
+
+/* 죽전 - 감삼 11:59 */
+#sec2_down_3 {
+    width: 10px;
+    height: 5px;
+    position: absolute;
+    text-align: center;
+    left: 535px;
+    top: 195px;
+}
+
+/* 청라언덕 - 반월당 12:00 */
+#sec2_down_4 {
+    width: 10px;
+    height: 5px;
+    position: absolute;
+    text-align: center;
+    left: 765px;
+    top: 570px;
+}
+
+/* 범어 - 수성구청 11:59 */
+#sec2_down_5 {
+    width: 10px;
+    height: 5px;
+    position: absolute;
+    text-align: center;
+    left: 895px;
+    top: 745px;
+}
+
+/* 연호 - 대공원 11:59 */
+#sec2_down_6 {
+    width: 10px;
+    height: 5px;
+    position: absolute;
+    text-align: center;
+    left: 1055px;
+    top: 745px;
+}
+
+/* 사월 - 정평 11:59 */
+#sec2_down_7 {
+    width: 10px;
+    height: 5px;
+    position: absolute;
+    text-align: center;
+    left: 1215px;
+    top: 745px;
+}
+
+/*** 3호선 칠곡경대병원행 열차 ***/
+/* 수성못 - 황금 11:59 */
+#sec3_up_1 {
+    width: 5px;
+    height: 10px;
+    position: absolute;
+    text-align: center;
+    left: 1015px;
+    top: 730px;
+}
+
+/* 수성시장 - 대봉교 11:59 */
+#sec3_up_2 {
+    width: 10px;
+    height: 5px;
+    position: absolute;
+    text-align: center;
+    left: 1015px;
+    top: 610px;
+}
+
+/* 남산 - 청라언덕 11:59 */
+#sec3_up_3 {
+    width: 10px;
+    height: 5px;
+    position: absolute;
+    text-align: center;
+    left: 945px;
+    top: 490px;
+}
+
+/* 북구청 - 원대 11:59 */
+#sec3_up_4 {
+    width: 10px;
+    height: 5px;
+    position: absolute;
+    text-align: center;
+    left: 745px;
+    top: 490px;
+}
+
+/* 팔달 - 매천시장 12:00 */
+#sec3_up_5 {
+    width: 10px;
+    height: 5px;
+    position: absolute;
+    text-align: center;
+    left: 565px;
+    top: 490px;
+}
+
+/* 구암 - 칠곡운암 12:00 */
+#sec3_up_6 {
+    width: 10px;
+    height: 5px;
+    position: absolute;
+    text-align: center;
+    left: 565px;
+    top: 370px;
+}
+
+/* 학정 - 칠곡경대병원 11:59 */
+#sec3_up_7 {
+    width: 10px;
+    height: 5px;
+    position: absolute;
+    text-align: center;
+    left: 565px;
+    top: 250px;
+}
+
+/*** 3호선 용지행 열차 ***/
+/* 동천 - 칠곡운암 12:00 */
+#sec3_down_1 {
+    width: 10px;
+    height: 5px;
+    position: absolute;
+    text-align: center;
+    left: 525px;
+    top: 310px;
+}
+
+/* 매천 - 매천시장 12:00 */
+#sec3_down_2 {
+    width: 10px;
+    height: 5px;
+    position: absolute;
+    text-align: center;
+    left: 525px;
+    top: 430px;
+}
+
+/* 만평 - 팔달시장 12:00 */
+#sec3_down_3 {
+    width: 10px;
+    height: 5px;
+    position: absolute;
+    text-align: center;
+    left: 595px;
+    top: 550px;
+}
+
+/* 달성공원 - 서문시장 11:59 */
+#sec3_down_4 {
+    width: 10px;
+    height: 5px;
+    position: absolute;
+    text-align: center;
+    left: 795px;
+    top: 550px;
+}
+
+/* 명덕 - 건들바위 11:59 */
+#sec3_down_5 {
+    width: 10px;
+    height: 5px;
+    position: absolute;
+    text-align: center;
+    left: 980px;
+    top: 530px;
+}
+
+/* 성구민운동 - 어린이회관 11:59 */
+#sec3_down_6 {
+    width: 10px;
+    height: 5px;
+    position: absolute;
+    text-align: center;
+    left: 980px;
+    top: 640px;
+}
+
+/* 지산 - 범물 11:59 */
+#sec3_down_7 {
+    width: 10px;
+    height: 5px;
+    position: absolute;
+    text-align: center;
+    left: 980px;
+    top: 760px;
+}
+

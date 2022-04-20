@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load staticfiles %}
+  
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css'%}">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <!-- <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}"> -->
+  <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>메인페이지</title>
+  <style>
+    .table {
+      width: 70%;
+    }
+    #logos{
+      width: 50px;
+      height: 50px;
+      margin-left: -5px;
+      margin-top: -5px;
+    }
+    .btn-index-1 {
+        display: inline-block;
+        width: 100%;
+        height: 3.125rem;
+        border: 1px solid #005587;
+        border-radius: 1.0rem;
+        background-color: #005587;
+        color: #fff;
+        font: 700 0.875rem/0 "Open Sans", sans-serif;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    
+    .btn-index-1:hover {
+        background-color: transparent;
+        color: #005587;
+    }
+    .btn-index-2 {
+        display: inline-block;
+        width: 100%;
+        height: 3.125rem;
+        border: 1px solid #005587;
+        border-radius: 1.0rem;
+        background-color: #005587;
+        color: #fff;
+        font: 700 0.875rem/0 "Open Sans", sans-serif;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    
+    .btn-index-2:hover {
+        background-color: transparent;
+        color: #005587;
+    }
+  </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+        <div class="container">
+
+            <!-- Image Logo -->
+            <a class="navbar-brand logo-image" href="/main"><img id='logos' src="{% static 'images/logo_1.png '%}"></a> 
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="/main">HOME <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="{% url 'SB:SI' 1 %}">건의사항</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="{% url 'BD:I' 1 %}">공지사항</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                  {% if user.is_active %}
+                      <li><button class="btn-index-1" type="button" onclick="document.location.href='/account/myinfo'"> {{ user }} </button></li>  &nbsp;&nbsp;&nbsp;
+                      <li><button class="btn-index-2" type="button" onclick="document.location.href='/account/logout'"> Logout </button></li>
+                  {% endif %}
+              </ul>
+            </div>
+        </div> <!-- end of container -->
+    </nav> <!-- end of navbar -->
+    <!-- end of navigation -->
+
+  <div align="center">
+    {% block content %}{% endblock %}
+  </div>
+  {% block menu_active %}
+  <script>
+    document.getElementById("home").className = "active";
+  </script>
+  {% endblock %}
+</body>
+
+</html>

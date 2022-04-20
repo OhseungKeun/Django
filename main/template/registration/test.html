@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+        <link rel='stylesheet' href='/vendor/bootstrap/css/bootstrap.css' />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+
+    <body>
+        <select id='select1' onchange="change(this)">
+            <option>청을선택하시오</option>
+            <option value="1">부산청</option>
+            <option value="2">인천청</option>
+            <option value='3'>여수청</option>
+            <option value='4'>울산청</option>
+            <option value='5'>대산청</option>
+            <option value='6'>평택청</option>
+            <option value='7'>목포청</option>
+            <option value='8'>군산청</option>
+            <option value='9'>마산청</option>
+            <option value='10'>포항청</option>
+            <option value='11'>동해청</option>
+            <option value='12'>제주단</option>
+            <option value='13'>진도소</option>
+        </select>
+
+        <select id='select2'>
+            <option>지점을 선택하시오</option>
+        </select>
+        <script>
+            function change(e) {
+                var s_a = ["부산항신항중앙C호등부표", "나무섬등대", "오륙도등대", "가덕도등대", "신항유도등부표(랜비)", "부산항유도등부표(랜비)", "남형제도등표", "남항동방파제등대", "송정리등표", "감천항유도등부표(랜비)"];
+                var s_b = ["팔미도등대", "부도등대", "선미도등대", "소청도등대", "목덕도등대", "인천항석탄부두A호등대", "소야도등대", "소연평도등대", "서포리남방등표", "북장자서등표", "초치암등표", "민어탄등표", "고식이등표"];
+                var s_c = ["여초등표", "중결도등대", "광양항등표", "여수해만중앙A호유도등부표"];
+                var s_d = ["울산항등부표"];
+                var s_e = ["대산항제2항로제3호등부표", "신도타서등표", "옹도등대", "소녀암등표"];
+                var s_f = ["입파도등대", "무당서등표"];
+                var s_g = ["(기상)외달도등표", "(기상)매물도등대", "(기상)대노록도등대", "(기상)홍도등대", "(기상)가거도등대", "(기상)계마항방파제등대", "(기상)우세도등대"];
+                var s_h = ["비응항서방파제남단등대", "군산연도등대", "상왕등도등대", "군산흑도등표", "흑서등표"];
+                var s_i = ["흑암등표", "고암등대", "견내량등표", "고도등표"];
+                var s_j = ["도동등대", "영일만항분리항로등부표(랜비)"];
+                var s_k = ["동해항남방파제등대", "주문진항동방파제등대", "임원항방파제등대"];
+                var s_l = ["중뢰등표", "김녕항서방파제등대", "우도등표", "방서등대", "개민포등대"];
+                var s_m = ["완도항 유도등부표(기)", "황제도등대(기)", "횡간도등대(기)", "여서도등대(기)", "명량수도조류신호표지", "하조도등대(기)", "어룡도등대(기)", "장죽수도조류신호표지", "녹도등대(기)"];
+
+                var target = document.getElementById("select2");
+
+                if (e.value == "1") var d = s_a;
+                else if (e.value == "2") var d = s_b;
+                else if (e.value == "3") var d = s_c;
+                else if (e.value == "4") var d = s_d;
+                else if (e.value == "5") var d = s_e;
+                else if (e.value == "6") var d = s_f;
+                else if (e.value == "7") var d = s_g;
+                else if (e.value == "8") var d = s_h;
+                else if (e.value == "9") var d = s_i;
+                else if (e.value == "10") var d = s_j;
+                else if (e.value == "11") var d = s_k;
+                else if (e.value == "12") var d = s_l;
+                else if (e.value == "13") var d = s_m;
+
+
+                <br><br>
+                    <table border="1">
+                        <th>수집일시</th>
+                        <th>기관코드</th>
+                        <th>기관명</th>
+                        <th>지점코드</th>
+                        <th>지점명</th>
+                        <th>풍향</th>
+                        <th>풍속</th>
+                        <th>기온</th>
+                        <th>습도</th>
+                        <th>기압</th>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                    </table>
+        </script>
+    </body>
+</html>

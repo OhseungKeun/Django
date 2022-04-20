@@ -1,0 +1,232 @@
+{% extends 'index.html' %} {% block content %}
+<style>
+    .row {
+        margin-right: -15px;
+        margin-left: -15px;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin-right: -15px;
+        margin-left: -15px;
+        max-width: 800px;
+    }
+    
+    .row:after,
+    .row:before {
+        display: table;
+        content: " "
+    }
+    
+    .row:after {
+        clear: both
+    }
+    
+    .tm-input {
+        margin: 0 0 20px 0;
+        width: 90%;
+        padding: 8px 20px;
+        border-radius: 6px;
+        border: 1px solid white;
+        background: transparent;
+        color: white;
+    }
+    
+    .above-heading {
+        color: #005587;
+        font: 700 0.75rem/0.875rem "Open Sans", sans-serif;
+        text-align: center;
+    }
+    
+    .text-container h2 {
+        color: #013F52;
+    }
+    
+    .col-lg-12 {
+        position: relative;
+        min-height: 1px;
+        padding: 30px;
+        width: 100%;
+        max-width: 100%;
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        border-radius: 30px;
+        background-color: #c2d6e0;
+    }
+    
+    @media (min-width:1200px) {
+        .col-lg-12 {
+            float: left;
+            width: 100%;
+        }
+    }
+    
+    .form {
+        padding-top: 4rem;
+        padding-bottom: 6rem;
+    }
+    
+    .form .text-container {
+        margin-bottom: 3.5rem;
+        padding: 3.5rem 1rem 2.5rem 1rem;
+        border-radius: 0.5rem;
+        background-color: #88cdf6;
+    }
+    
+    .form h2 {
+        margin-bottom: 2.75rem;
+        text-align: center;
+    }
+    
+    .form-group {
+        margin-bottom: 1rem;
+        position: relative;
+        margin-bottom: 1.25rem;
+    }
+    
+    .form-group.has-error.has-danger {
+        margin-bottom: 0.625rem;
+    }
+    
+    .form-group.has-error.has-danger .help-block.with-errors ul {
+        margin-top: 0.375rem;
+    }
+    
+    .form-control-input {
+        display: block;
+        /* needed for proper display of the label in Firefox, IE, Edge */
+        width: 100%;
+        padding-top: 1.0625rem;
+        padding-bottom: 0.0625rem;
+        padding-left: 1.25rem;
+        border: 1px solid #c4d8dc;
+        border-radius: 0.25rem;
+        background-color: #fff;
+        color: #555;
+        font: 400 0.875rem/1.875rem "Open Sans", sans-serif;
+        transition: all 0.2s;
+        -webkit-appearance: none;
+        /* removes inner shadow on form inputs on ios safari */
+    }
+    
+    @media screen and (-ms-high-contrast: active),
+    screen and (-ms-high-contrast: none) {
+        .form-control-input {
+            padding-top: 1.25rem;
+            padding-bottom: 0.75rem;
+            line-height: 1.75rem;
+        }
+    }
+    
+    input::placeholder {
+        color: #005587;
+    }
+    
+    input::-webkit-input-placeholder {
+        color: #005587;
+    }
+    
+    input:-ms-input-placeholder {
+        color: #005587;
+    }
+    
+    textarea::placeholder {
+        color: #005587;
+    }
+    
+    textarea::-webkit-input-placeholder {
+        color: #005587;
+    }
+    
+    textarea:-ms-input-placeholder {
+        color: #005587;
+    }
+    
+    .form-control-input:focus,
+    .form-control-select:focus,
+    .form-control-textarea:focus {
+        border: 1px solid #a1a1a1;
+        outline: none;
+        /* Removes blue border on focus */
+    }
+    
+    .form-control-input:hover,
+    .form-control-select:hover,
+    .form-control-textarea:hover {
+        border: 1px solid #a1a1a1;
+    }
+    
+    .label-control {
+        position: absolute;
+        top: 0.87rem;
+        left: 1.25rem;
+        color: #555;
+        opacity: 1;
+        font: 400 0.875rem/1.375rem "Open Sans", sans-serif;
+        cursor: text;
+        transition: all 0.2s ease;
+    }
+    
+    @media screen and (-ms-high-contrast: active),
+    screen and (-ms-high-contrast: none) {
+        .label-control {
+            top: 0.9375rem;
+        }
+    }
+    
+    .btn-sboard {
+        display: inline-block;
+        width: 100%;
+        height: 3.125rem;
+        border: 1px solid #005587;
+        border-radius: 1.5rem;
+        background-color: #005587;
+        color: #fff;
+        font: 700 0.875rem/0 "Open Sans", sans-serif;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    
+    .btn-sboard:hover {
+        background-color: transparent;
+        color: #005587;
+    }
+</style>
+
+<br><br><br><br><br><br>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="text-container">
+            <div class="above-heading">건의사항</div>
+            
+            <h2>CONTACT</h2>
+
+            <form method="post" name="frm" data-toggle="validator" data-focus="false" enctype="multipart/form-data"> {% csrf_token %}
+                <div class="form-group">
+                    <br>
+                    <input type="text" id="title" name="title" placeholder="제목" class="form-control-input" required>
+                    <div class="help-block with-errors"></div>
+
+                    <input type="text" id="name" name="name" placeholder="이름" class="form-control-input" id="nemail" required>
+                    <div class="help-block with-errors"></div>
+
+                    <textarea id="context" name="context" class="form-control-input" rows="8" placeholder="건의사항 (답변을 받고 싶으신 경우, 연락처 기입을 부탁드립니다.)" required></textarea>
+                    <div class="help-block with-errors"></div>
+                    <br>
+                </div>
+                <div class="form-group checkbox">
+                    <input type="checkbox" id="nterms" value="Agreed-to-Terms" required> 개인정보 및 건의사항 전달에 동의합니다.
+                    <div class="help-block with-errors"></div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn-sboard">SEND</button>
+                </div>
+                <div class="form-message">
+                    <div id="nmsgSubmit" class="h3 text-center hidden"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
